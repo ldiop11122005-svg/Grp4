@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Les Artisans du Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="texte">
+        <p style="color: rgb(7, 196, 133); padding-bottom: 5px;" >ESPACE ADMINISTRATION</p>
+        <h1>Gestion des étudiants UNCHK</h1>
+        <p style="padding-top: 5px; opacity: 0.8;">Gérez les inscriptions et suivez les résultats</p>
+        </div>
+        <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
+        <button id="theme-toggle"><i class="fa-solid fa-sun"></i></button>
+    </header>
+    <main>
+        <section id="statistique">
+            <div class="container">
+            <div class="carte"> <h3 style="color: gray;">Total Etudiants</h3><p id="total"></p></div> 
+            <div class="carte"> <h3 style="color: gray;">Moyenne générale</h3><p id="moyenne"></p></div>
+            <div class="carte"> <h3 style="color: gray;">Étudiants admis</h3><p id="admis"></p></div>  
+            </div>  
+        </section>
+        <div class="box-container">
+                <div class="titre">
+                     <h2 style="font-family: sans-serif;">Ajouter un étudiant</h2>
+                </div>
+                <form action="#" class="e">
+                <div class="details">
+                  <div class="input-box">
+                    <label>Nom</label>
+                    <input type="text" id="nom" placeholder="ex: Njaay">
+                   </div>  
+
+                    <div class="input-box">
+                    <label>Prenom</label>
+                   <input type="text" id="prenom" placeholder="ex: Njaay">
+                   </div>  
+
+                    <div class="input-box">
+                    <label>Adresse e-mail</label>
+                   <input type="email" id="email" placeholder="ex: papanjaay07@gmail.com">
+                   </div>  
+
+                    <div class="input-box">
+                    <label>Classe</label>
+                    <input type="text" id="class" placeholder="ex: L1 Ida">
+                   </div>  
+
+                   <div class="input-box">
+                    <label>Note sur 20</label>
+                    <input type="number" id="note" placeholder="ex: 15.5" step="any"> 
+                   </div>  
+
+                    <br><br>
+                    <button type="submit" class="bouton" style="cursor: pointer;">Ajouter l'étudiant</button>
+                    <p id="message"></p>
+                </div>
+                </form>
+                </div>
+            </div>
+            <section id="liste">
+                <div class="titre1"> 
+                    <div>
+                <h2>Liste des étudiants</h2>
+                <p style="color: gray; padding-top: 5px;">Consultez et Gérez les instructions </p></div>
+                <div class="rech">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="recherche" placeholder="Rechercher un etudiant..." onkeyup="filtrerEtudiants()">
+                <select id="filtreStatut" onchange="filtrerEtudiants()">
+                    <option value="tous">Tous les étudiants</option>
+                    <option value="ADMIS">Admis uniquement</option>
+                    <option value="ECHEC">Échecs uniquement</option>
+                </select>
+                </div>
+                </div>
+                </div>
+                <table>
+                    <tr class="scroll">
+                        <th>Nom complet</th>
+                        <th>Email</th>
+                        <th>Classe</th>
+                        <th>Note/20</th>
+                        <th>Résultat</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody id="tab"></tbody>
+                </table>
+            </section>
+            <section>
+                <div class="pagination-container" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px;">
+                    <button id="btnPrecedent" onclick="changerPage(-1)" style="padding: 8px 15px; cursor: pointer;">Précédent</button>
+                    <span id="pageInfo" style="font-weight: bold; color: #333;">Page 1 sur 1</span>
+                    <button id="btnSuivant" onclick="changerPage(1)" style="padding: 8px 15px; cursor: pointer;">Suivant</button>
+                </div>
+            </section>
+    </main>
+    <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+        <div class="popup-icon" id="popupIcon">✓</div>
+
+        <h2 id="popupTitle">Succès !</h2>
+
+        <p id="popupMessage">
+            Opération effectuée avec succès.
+        </p>
+
+        <button onclick="fermerPopup()">
+            Continuer
+        </button>
+    </div>
+</div>
+
+    <script src="correct.js" defer></script>
+</body>
+</html>
